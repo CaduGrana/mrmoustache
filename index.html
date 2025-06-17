@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr Moustache Barbearia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <i class="fas fa-cut"></i>
+                <h1>Mr Moustache Barbearia</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="container">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="agendar">
+                    <i class="fas fa-user"></i>
+                    Agendar Horário
+                </button>
+                <button class="nav-tab" data-tab="calendario">
+                    <i class="fas fa-calendar"></i>
+                    Calendário
+                </button>
+                <button class="nav-tab" data-tab="gerenciar">
+                    <i class="fas fa-cog"></i>
+                    Gerenciar
+                </button>
+                <button class="nav-tab" data-tab="whatsapp-config">
+                    <i class="fab fa-whatsapp"></i>
+                    WhatsApp API
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Agendar Horário Tab -->
+            <div id="agendar" class="tab-content active">
+                <div class="form-container">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <i class="fas fa-cut"></i>
+                                <h2>Agendar um Horário</h2>
+                            </div>
+                            <p class="card-description">Preencha os dados abaixo para agendar seu horário</p>
+                        </div>
+                        
+                        <div class="card-content">
+                            <form id="agendamento-form" class="form">
+                                <div class="form-group">
+                                    <label for="nome">
+                                        <i class="fas fa-user"></i>
+                                        Nome Completo *
+                                    </label>
+                                    <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="telefone">
+                                        <i class="fas fa-phone"></i>
+                                        Telefone de Contato *
+                                    </label>
+                                    <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">
+                                        <i class="fas fa-envelope"></i>
+                                        E-mail *
+                                    </label>
+                                    <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="barbeiro">
+                                        <i class="fas fa-cut"></i>
+                                        Nome do Barbeiro *
+                                    </label>
+                                    <select id="barbeiro" name="barbeiro" required>
+                                        <option value="">Selecione um barbeiro</option>
+                                        <option value="João Silva">João Silva - Corte Clássico</option>
+                                        <option value="Pedro Santos">Pedro Santos - Barba e Bigode</option>
+                                        <option value="Carlos Oliveira">Carlos Oliveira - Corte Moderno</option>
+                                        <option value="Rafael Costa" disabled>Rafael Costa - Degradê (Indisponível)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="data">
+                                        <i class="fas fa-calendar"></i>
+                                        Data *
+                                    </label>
+                                    <input type="date" id="data" name="data" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="horario">
+                                        <i class="fas fa-clock"></i>
+                                        Horário *
+                                    </label>
+                                    <select id="horario" name="horario" required>
+                                        <option value="">Selecione um barbeiro e data primeiro</option>
+                                        <option value="08:00">08:00</option>
+                                        <option value="08:30">08:30</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="09:30">09:30</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="10:30">10:30</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="11:30">11:30</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="14:30">14:30</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="15:30">15:30</option>
+                                        <option value="16:00">16:00</option>
+                                        <option value="16:30">16:30</option>
+                                        <option value="17:00">17:00</option>
+                                        <option value="17:30">17:30</option>
+                                        <option value="18:00">18:00</option>
+                                        <option value="18:30">18:30</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="observacoes">Observações (opcional)</label>
+                                    <textarea id="observacoes" name="observacoes" placeholder="Alguma observação sobre o corte ou serviço?" rows="4"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="auto-whatsapp" name="auto-whatsapp" checked>
+                                        <span class="checkmark"></span>
+                                        Enviar confirmação automática via WhatsApp
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="btn-primary">Agendar Agora</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="visit-counter">
+                        <p>Visitas na página: <span id="visit-count">1247</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendário Tab -->
+            <div id="calendario" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="fas fa-calendar"></i>
+                            <h2>Calendário de Agendamentos</h2>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="calendar-container">
+                            <div class="calendar-section">
+                                <div id="calendar" class="calendar"></div>
+                            </div>
+                            <div class="appointments-section">
+                                <h3>Agendamentos do dia</h3>
+                                <div id="daily-appointments" class="appointments-list">
+                                    <p class="no-appointments">Nenhum agendamento encontrado</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gerenciar Tab -->
+            <div id="gerenciar" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="fas fa-cog"></i>
+                            <h2>Gerenciar Agendamentos</h2>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div id="manage-appointments" class="manage-list">
+                            <p class="no-appointments">Nenhum agendamento para gerenciar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WhatsApp API Configuration Tab -->
+            <div id="whatsapp-config" class="tab-content">
+                <div class="config-container">
+                    <!-- API Configuration Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <i class="fab fa-whatsapp"></i>
+                                <h2>Configuração WhatsApp Business API</h2>
+                            </div>
+                            <p class="card-description">Configure a integração com WhatsApp Business API para envio automático</p>
+                        </div>
+                        <div class="card-content">
+                            <form id="whatsapp-config-form" class="form">
+                                <div class="form-group">
+                                    <label for="api-token">
+                                        <i class="fas fa-key"></i>
+                                        Token de Acesso *
+                                    </label>
+                                    <input type="password" id="api-token" name="api-token" placeholder="Seu token da WhatsApp Business API">
+                                    <small class="form-help">Obtenha seu token no Facebook Developers</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone-number-id">
+                                        <i class="fas fa-phone"></i>
+                                        Phone Number ID *
+                                    </label>
+                                    <input type="text" id="phone-number-id" name="phone-number-id" placeholder="ID do número de telefone">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="business-account-id">
+                                        <i class="fas fa-building"></i>
+                                        Business Account ID
+                                    </label>
+                                    <input type="text" id="business-account-id" name="business-account-id" placeholder="ID da conta business">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="auto-send-enabled" name="auto-send-enabled">
+                                        <span class="checkmark"></span>
+                                        Habilitar envio automático de mensagens
+                                    </label>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn-secondary" onclick="testWhatsAppConnection()">
+                                        <i class="fas fa-plug"></i>
+                                        Testar Conexão
+                                    </button>
+                                    <button type="submit" class="btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        Salvar Configuração
+                                    </button>
+                                </div>
+                            </form>
+
+                            <div id="connection-status" class="connection-status">
+                                <div class="status-indicator">
+                                    <i class="fas fa-circle status-icon"></i>
+                                    <span class="status-text">Não configurado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Templates Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <i class="fas fa-comments"></i>
+                                <h2>Templates de Mensagem</h2>
+                            </div>
+                            <p class="card-description">Gerencie os templates aprovados pelo WhatsApp</p>
+                        </div>
+                        <div class="card-content">
+                            <div id="message-templates" class="templates-list">
+                                <!-- Templates will be loaded here -->
+                            </div>
+                            <button class="btn-secondary" onclick="refreshTemplates()">
+                                <i class="fas fa-sync"></i>
+                                Atualizar Templates
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Automation Settings Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <i class="fas fa-robot"></i>
+                                <h2>Configurações de Automação</h2>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="automation-settings">
+                                <div class="setting-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="auto-confirmation" checked>
+                                        <span class="checkmark"></span>
+                                        Confirmação automática de agendamento
+                                    </label>
+                                    <small>Envia confirmação imediatamente após o agendamento</small>
+                                </div>
+
+                                <div class="setting-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="auto-reminder" checked>
+                                        <span class="checkmark"></span>
+                                        Lembrete automático
+                                    </label>
+                                    <div class="reminder-time">
+                                        <label for="reminder-hours">Enviar lembrete:</label>
+                                        <select id="reminder-hours">
+                                            <option value="1">1 hora antes</option>
+                                            <option value="2">2 horas antes</option>
+                                            <option value="4">4 horas antes</option>
+                                            <option value="24" selected>1 dia antes</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="setting-item">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="auto-status-update">
+                                        <span class="checkmark"></span>
+                                        Notificação de mudança de status
+                                    </label>
+                                    <small>Notifica cliente quando status do agendamento muda</small>
+                                </div>
+
+                                <button class="btn-primary" onclick="saveAutomationSettings()">
+                                    <i class="fas fa-save"></i>
+                                    Salvar Configurações
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Logs Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <i class="fas fa-history"></i>
+                                <h2>Log de Mensagens</h2>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="log-filters">
+                                <select id="log-filter">
+                                    <option value="all">Todas as mensagens</option>
+                                    <option value="sent">Enviadas</option>
+                                    <option value="failed">Falharam</option>
+                                    <option value="pending">Pendentes</option>
+                                </select>
+                                <button class="btn-secondary" onclick="refreshMessageLogs()">
+                                    <i class="fas fa-sync"></i>
+                                    Atualizar
+                                </button>
+                            </div>
+                            <div id="message-logs" class="message-logs">
+                                <!-- Logs will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- WhatsApp Message Modal -->
+    <div id="whatsapp-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fab fa-whatsapp"></i> Enviar Mensagem WhatsApp</h3>
+                <button class="modal-close" onclick="closeWhatsAppModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="message-templates">
+                    <h4>Selecione o tipo de mensagem:</h4>
+                    <div class="template-buttons">
+                        <button class="template-btn" onclick="selectTemplate('confirmacao')">
+                            <i class="fas fa-check-circle"></i>
+                            Confirmação de Agendamento
+                        </button>
+                        <button class="template-btn" onclick="selectTemplate('lembrete')">
+                            <i class="fas fa-bell"></i>
+                            Lembrete de Agendamento
+                        </button>
+                        <button class="template-btn" onclick="selectTemplate('reagendamento')">
+                            <i class="fas fa-calendar-alt"></i>
+                            Reagendamento
+                        </button>
+                        <button class="template-btn" onclick="selectTemplate('cancelamento')">
+                            <i class="fas fa-times-circle"></i>
+                            Cancelamento
+                        </button>
+                        <button class="template-btn" onclick="selectTemplate('personalizada')">
+                            <i class="fas fa-edit"></i>
+                            Mensagem Personalizada
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="message-preview">
+                    <h4>Prévia da mensagem:</h4>
+                    <div class="message-content">
+                        <textarea id="message-text" rows="6" placeholder="Selecione um template ou digite sua mensagem personalizada..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="send-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="send-via-api" checked>
+                        <span class="checkmark"></span>
+                        Enviar via API (automático)
+                    </label>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn-secondary" onclick="closeWhatsAppModal()">Cancelar</button>
+                    <button class="btn-whatsapp" onclick="sendWhatsAppMessage()">
+                        <i class="fab fa-whatsapp"></i>
+                        Enviar Mensagem
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-content">
+            <i class="toast-icon"></i>
+            <div class="toast-text">
+                <div class="toast-title"></div>
+                <div class="toast-description"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
